@@ -62,20 +62,4 @@ The firmware communicates with onboard sensors via I2C and manages BLE communica
 - Low-power mode during idle
 - Battery voltage monitoring
 
-### Example Pseudocode
 
-```c
-// Initialize peripherals
-i2c_init();
-bme280_init();
-mcp4725_init();
-
-// Read sensor data
-float temp, pressure, humidity;
-bme280_read(&temp, &pressure, &humidity);
-
-// Set DAC output for calibration
-mcp4725_write(2048); // Mid-scale output
-
-// Send via BLE
-ble_send_data(temp, pressure, humidity);
